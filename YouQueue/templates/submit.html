@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Submit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    {% load static %}
+     <link rel="stylesheet" href="{% static 'submit-style.css' %}">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  </head>
+  <body>
+    <section class = "hero is-fullheight has-bg-img">
+      <div class="hero-head">
+        <nav class="navbar is-transparent">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="http://127.0.0.1:8000/list/">
+              <img src="{% static 'logo.png' %}" alt="Home">
+            </a>
+            <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+  
+          <div id="navbarExampleTransparentExample" class="navbar-menu">
+            <div class="navbar-start">
+              {% if show_songs %}
+              <a class="navbar-item" href="http://127.0.0.1:8000/list/">
+                Current Queue
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </nav>       
+      </div>
+
+        <div class="hero-body">
+          <div class = "container has-text-centered">
+            <h1 class="title">
+              Submit a YouTube link
+            </h1>
+            <p class="subtitle"> 
+              <form method = "GET">
+                <input class="input is-large is-rounded" type="text" placeholder="https://www.youtube.com/watch?v=i3vWOV8ppBQ" name = "submit">
+              </form>
+            </p>
+           </div>
+        </div>
+    </section>
+  </body>
+<script>
+</script>
+</html>

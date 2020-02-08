@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Submit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    {% load static %}
+
+     <link rel="stylesheet" href="{% static 'submit-style.css' %}">
+
+    {% load static %}
+     <link rel="stylesheet" href="{% static 'submit-style.css' %}">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+  </head>
+  <body>
+    <section class="hero is-fullheight">
+    <div class="hero-head">
+      <nav class="navbar is-transparent">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="http://127.0.0.1:8000/">
+            <img src="{% static 'logo.png' %}" alt="Home">
+          </a>
+          <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item" href="http://127.0.0.1:8000/">
+              Submit a song
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>       
+    </div>
+
+      <br>
+          <div class = "container">
+            <h1 class = "title is-1">Add a song</h1>
+            <form method = "GET">
+              <input class="input is-medium is-rounded" type="text" placeholder="https://www.youtube.com/watch?v=i3vWOV8ppBQ" name = "submit" style="padding-x:5px">
+            </form>
+          </div>
+      <br>
+
+      {% if songs|length > 0 %}
+      <div class = "container">
+      <h3 class="title is-3">Current Queue</h3>
+        <div class = "columns">
+          <div class = "column is-one-third">
+              <iframe style = "height: 100%" src="http://www.youtube.com/embed/{{ songs.0.vid }}?rel=0;&autoplay=1" frameborder = "0" allowfullscreen></iframe>
+          </div>
+          <div class = "column is-two-thirds">
+            <h3 class="title">{{ songs.0.title }}</h3>
+            <a class="button is-primary">Skip Song</a>
+
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <br>
+        {% if songs|length > 1 %}
+          {% for s in not_first %}
+              <div class = "container song-{{s.vid}}">
+                <!--- THIS WILL BE THE FOR LOOP -->
+                <div class="columns">
+                  <div class="column is-one-fifth">
+                    <figure class="image is-4by3">
+                      <img src="{{ s.thumbnail }}">
+                    </figure>
+                  </div>
+                  <div class="column is-four-fifths">
+                    <h5 class="title is-5">{{ s.title }}</h5>
+                    <p>Vote</p>
+                    <img class="upvote upvote-{{ s.vid }}" src="{% static 'up.png' %}" width="3%" height="3%">
+                    <img class="downvote downvote-{{ s.vid }}" src="{% static 'down.png' %}" width="3%" height="3%">
+                  </div>
+                </div>
+            {% endfor %}
+          {% endif %}
+
+        {% else %}
+
+        <div class = "container">
+          <h1 class="title is-1">No songs in queue...add some!</h1>
+        </div>
+        {% endif %}
+
+
+      <br>
+      <br>
+    </section>
+  </body>
+  <script>
+    $('.upvote').click(function() {
+       var vid = $(this).attr('class').split(' ')[1].split('-')[1];
+       alert(vid);
+      $.ajax({
+          url: "{% url 'downvote' %}",
+          data: {
+              'vid': vid
+          },
+          dataType: 'json',
+          success: function(data) {
+            return;
+          }
+      });
+});
+$('.downvote').click(function() {
+      var vid = $(this).attr('class').split(' ')[1].split('-')[1];
+      $.ajax({
+          url: "{% url 'downvote' %}",
+          data: {
+              'vid': vid
+          },
+          dataType: 'json',
+          success: function(data) {
+            console.log(data["newVotes"]);
+            if (data["newVotes"] <= -2) {
+              $('.song-' + vid).remove();
+            }
+          }
+      });
+});
+  </script>
+</html>
