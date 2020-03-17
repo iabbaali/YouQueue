@@ -2,6 +2,7 @@
 🎵 Web app for queueing and voting on songs for an event playlist
 
 Awarded Best Design at MLH Local Hack Day Hackathon 2018 at UC Irvine
+---
 
 ## What it does
 For the MLH Local Hack Day, my team and I created a project called YouQueue - A Hacker Music Helper. YouQueue is a web application used for events where users can enter the YouTube url of a song and the program will add it into the playlist queue. People can "vote up" or "vote down" songs in the queue and the songs will be ordered based on the voting. If a song gets enough down votes, it is removed from the queue.
