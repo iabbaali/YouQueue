@@ -2,6 +2,7 @@
 🎵 Web app for queueing and voting on songs for an event playlist
 
 Awarded Best Design at MLH Local Hack Day Hackathon 2018 at UC Irvine
+
 ---
 
 ## What it does
