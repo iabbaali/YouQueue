@@ -22,4 +22,4 @@ This 12-hour hackathon was the very first hackathon that I attended during colle
 Devpost Submission: https://devpost.com/software/youqueue-a-hacker-music-helper
 
 ---
-**NOTE**: When cloning this application, there is one piece of information you must fill in in order to build and run properly. In the module YTAPI_filter.py, you must fill in YOUTUBE_API_KEY with your own API key for the YouTube Data API. After configuring this variable, you can successfully run YouQueue!
+**NOTE**: When cloning this application, there is one piece of information you must fill in in order to build and run properly. In the module YTAPI_filter.py, you must fill in *YOUTUBE_API_KEY* with your own API key for the YouTube Data API. After configuring this variable, you can successfully run YouQueue!
