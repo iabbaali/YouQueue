@@ -1,7 +1,7 @@
 # YouQueue
 🎵 Web app for queueing and voting on songs for an event playlist
 
-Awarded Best Design at MLH Local Hack Day Hackathon 2018 at UC Irvine
+Awarded Best Design at MLH Local Hack Day Hackathon 2018 at UC Irvine 🏅
 
 ---
 
@@ -20,3 +20,6 @@ My contribution to YouQueue involves integrating the YouTube Data API into the w
 This 12-hour hackathon was the very first hackathon that I attended during college. Being my first hackathon, I had no idea what to expect, what to do in preparation, who to work with, and what to create. I walked in not knowing anyone and I walked out with new friends and new mentors. Being a second year during this project, I did not have any experience programming fully functional applications. At that point, I was still learning Python and about data structures. Because of this, I felt hindered in my capability of contributing something substantial. However, I was determined in making a significant impact in my very first hackathon project, so I decided to take on the task of something that I worked with previously - using APIs in Python. By integrating the YouTube Data API into the web app, I felt that I made a big contribution to YouQueue because it was a core part of the application. Walking out of the hackathon, I felt proud of my accomplishment and was even more excited about participating in future hackathons.
 
 Devpost Submission: https://devpost.com/software/youqueue-a-hacker-music-helper
+
+---
+NOTE: When cloning this application, there is one piece of information you must fill in in order to build and run properly. In the module YTAPI_filter.py, you must fill in YOUTUBE_API_KEY with your own API key for the YouTube Data API. After configuring this variable, you can successfully run YouQueue!
